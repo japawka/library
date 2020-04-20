@@ -1,7 +1,15 @@
 .sidebar-nav {
 
-    margin-top: 20px;
+    margin-top: 2px;
     padding: 0;
     list-style: none;
+
+}
+
+.body {
+    margin-top: 2px;
+    padding: 0;
+    list-style: none;
+
 
 }

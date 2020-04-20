@@ -13,7 +13,11 @@
         {% if author.date_of_death %}
        {{ author.date_of_death }}
         {% endif %}
-      </li>
+        {% if perms.catalog.can_mark_returned %}
+          <a href="{% url 'author_update' author.pk %}"><button>Edit
+              author</button></a>
+          <a href="{% url 'author_delete' author.pk %}"><button>Delete author</button></a></li>
+        {% endif %}
     {% endfor %}
   </ul>
   {% else %}

@@ -31,12 +31,17 @@
             {% endif %}
         </ul>
         {% if perms.catalog.can_mark_returned %}
+          <ul>
                  <li>Librarian: {{ user.username }}</li>
              <li><a href="{% url 'all-borrowed' %}" class="color:Tomato;">All borrowed books</a></li>
-
+              <li><a href="{% url 'author_create' %}"
+                     class="color:Tomato;">Dodaj autora
+              </a></li>
+              <li><a href="{% url 'book_create' %}"
+                     class="color:Tomato;">Dodaj książkę
+              </a></li>
+          </ul>
         {% endif %}
-
-
       </div>
      {% endblock %}
       </div>

@@ -2,12 +2,19 @@
 
 {% block content %}
   <h1>Title: {{ book.title }}</h1>
-
+  {% if book.author %}
   <p><strong>Author:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
+  {% endif %}
   <p><strong>Summary:</strong> {{ book.summary }}</p>
   <p><strong>ISBN:</strong> {{ book.isbn }}</p>
   <p><strong>Language:</strong> {{ book.language }}</p>
   <p><strong>Genre:</strong> {{ book.genre.all|join:", " }}</p>
+
+    {% if perms.catalog.can_mark_returned %}
+      <a href="{% url 'book_update' book.pk %}"><button>Edit
+        book</button></a>
+      <a href="{% url 'book_delete' book.pk %}"><button>Delete book</button></a>
+    {% endif %}
 
   <div style="margin-left:20px;margin-top:20px">
     <h4>Copies</h4>

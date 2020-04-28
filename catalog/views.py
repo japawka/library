@@ -1,16 +1,17 @@
+import datetime
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from catalog.models import Book, Author, BookInstance, Genre
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
-import datetime
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import permission_required
+
 from catalog.forms import RenewBookForm, RenewBookModelForm
-from django.urls import reverse_lazy
+from catalog.models import Book, Author, BookInstance, Genre
 
 def index(request):
 	num_books = Book.objects.all().count()

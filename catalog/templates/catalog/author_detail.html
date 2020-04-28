@@ -8,11 +8,13 @@
     {% if author.date_of_death %}
         <p><strong>data śmierci: </strong>{{ author.date_of_death }}</p>
     {% endif %}
-
+        {% if author.book_set.all %}
+                  <h2> Książki tegoż autora:</h2>
+        {% endif %}
 
     <ul>
         {% for book in author.book_set.all %}
-          <h2> Książki tegoż autora:</h2>
+
             <li>
               <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> (ISBN:
               {{book.isbn }}) (copies: {{ book.bookinstance_set.all.count}})
